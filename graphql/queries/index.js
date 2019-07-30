@@ -1,9 +1,9 @@
-import { GraphQLObjectiveType } from 'graphql';
+import { GraphQLObjectType } from 'graphql';
 
-import queryAllGadgets from 'queryAllGadgets';
-import queryGadgetById from 'queryGadgetById';
+import queryAllGadgets from './queryAllGadgets';
+import queryGadgetById from './queryGadgetById';
 
-export default new GraphQLObjectiveType({
+export default new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
     queryAllGadgets,
