@@ -2,8 +2,11 @@ import app from './app';
 import mount from 'koa-mount';
 import graphqlHTTP from 'koa-graphql';
 import schema from './graphql/schema';
+import initDB from './database';
 import debug from 'debug';
 const server = debug('server');
+
+initDB();
 
 app
   .use(
