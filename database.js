@@ -5,7 +5,7 @@ let dbErr = debug('database:connection:error');
 
 const initDB = () => {
   const mongoDB = process.env.DATABASE_URL;
-  mongoose.connect(mongoDB, {useNewUrlParser: true});
+  mongoose.connect(mongoDB, { useNewUrlParser: true });
   const db = mongoose.connection.on('open', () => {
     dbDebug('successful');
   });
