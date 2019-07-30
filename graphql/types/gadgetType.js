@@ -12,6 +12,7 @@ const GadgetType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
+    by_company: { type: GraphQLString },
     release_date: {
       type: GraphQLString,
       resolve(gadgets) {
