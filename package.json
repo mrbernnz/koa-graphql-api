@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "nodemon": "nodemon --exec babel-node server.js",
-    "start:dev": "DEBUG=koa:* yarn nodemon"
+    "start:dev": "DEBUG=koa:*,database* yarn nodemon"
   },
   "dependencies": {
     "graphql": "14.4.2",
