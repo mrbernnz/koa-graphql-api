@@ -1,9 +1,8 @@
-import {buildSchema} from 'graphql';
+import { GraphQLSchema } from 'graphql';
+import RootQuery from './queries';
+import Mutations from './mutations';
 
-const schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
-
-export default schema;
+export default new GraphQLSchema({
+  query: RootQuery,
+  mutation: Mutations
+});
