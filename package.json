@@ -1,12 +1,12 @@
 {
   "name": "learning-koa",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "server.js",
   "author": "noel sagaille",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "nodemon": "nodemon --exec babel-node index.js",
+    "nodemon": "nodemon --exec babel-node server.js",
     "start:dev": "DEBUG=koa:* yarn nodemon"
   },
   "dependencies": {

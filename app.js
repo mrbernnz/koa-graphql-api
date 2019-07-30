@@ -27,6 +27,6 @@ app
     let from = ctx.request.origin;
     koaDebug(from);
     ctx.response.body = ctx.userData;
-  })
+  });
 
-  .listen(3000);
+export default app;
