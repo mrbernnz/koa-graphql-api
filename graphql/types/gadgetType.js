@@ -8,6 +8,7 @@ import moment from 'moment';
 
 const GadgetType = new GraphQLObjectType({
   name: 'Gadget',
+  description: 'A gadget',
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
