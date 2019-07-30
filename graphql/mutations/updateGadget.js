@@ -1,4 +1,5 @@
 import { GraphQLID, GraphQLInt, GraphQLString } from 'graphql';
+import moment from 'moment';
 import debug from 'debug';
 
 import gadgetGraphQLType from '../types/gadgetType';

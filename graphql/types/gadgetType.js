@@ -4,13 +4,19 @@ import {
   GraphQLInt,
   GraphQLString
 } from 'graphql';
+import moment from 'moment';
 
 const GadgetType = new GraphQLObjectType({
   name: 'Gadget',
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
-    release_date: { type: GraphQLString },
+    release_date: {
+      type: GraphQLString,
+      resolve(gadgets) {
+        return moment(gadgets.release_date).format('MMMM Do YYYY');
+      }
+    },
     price: { type: GraphQLInt }
   })
 });

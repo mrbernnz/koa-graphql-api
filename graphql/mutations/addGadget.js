@@ -1,4 +1,5 @@
 import { GraphQLInt, GraphQLString } from 'graphql';
+import moment from 'moment';
 
 import gadgetGraphQLType from '../types/gadgetType';
 import Gadget from '../../models/gadget';
@@ -15,7 +16,7 @@ export default {
     const { name, release_date, by_company, price } = args;
     const newGadget = new Gadget({
       name,
-      release_date,
+      release_date: moment(release_date).toDate(),
       by_company,
       price
     });
