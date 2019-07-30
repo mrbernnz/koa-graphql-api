@@ -20,9 +20,9 @@ export default {
     return Gadget.findById(args.id)
       .then(gadget => {
         gadget.name = args.name;
-        (gadget.release_date = args.release_date),
-          (gadget.by_company = args.by_company),
-          (gadget.price = args.price);
+        gadget.release_date = moment(args.release_date).toDate();
+        gadget.by_company = args.by_company;
+        gadget.price = args.price;
 
         return gadget.save();
       })

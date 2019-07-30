@@ -5,8 +5,8 @@ import Gadget from '../../models/gadget';
 
 export default {
   type: new GraphQLList(gadgetGraphQLType),
-  args: {},
+  description: 'All gadgets',
   resolve() {
-    return Gadget.find();
+    return Gadget.find({});
   }
 };
