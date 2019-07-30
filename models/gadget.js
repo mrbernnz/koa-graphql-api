@@ -7,4 +7,4 @@ const GadgetSchema = new Schema({
   price: Number
 });
 
-export default mongoose.model('Gadget', GadgetSchema);
+export default mongoose.model('gadget', GadgetSchema);
