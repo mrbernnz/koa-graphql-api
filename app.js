@@ -1,7 +1,30 @@
 import Koa from 'koa';
-// import debug from 'debug';
-// const koaDebug = debug('koa:application');
+import mount from 'koa-mount';
+import graphqlHTTP from 'koa-graphql';
+
+import schema from './graphql/schema';
+import initDB from './database';
+import debug from 'debug';
+
+const koaDebug = debug('koa:application');
 const app = new Koa();
+
+initDB();
+
+app
+  .listen(process.env.PORT || 3001)
+  .use(
+    mount(
+      '/graphql',
+      graphqlHTTP({
+        schema: schema,
+        graphiql: true
+      })
+    )
+  )
+  .on('err', err => {
+    koaDebug('app error', err);
+  });
 
 /*
  * app.context.date = Date();
