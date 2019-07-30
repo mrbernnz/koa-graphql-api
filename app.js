@@ -12,7 +12,6 @@ const app = new Koa();
 initDB();
 
 app
-  .listen(process.env.PORT || 3001)
   .use(
     mount(
       '/graphql',
@@ -22,6 +21,7 @@ app
       })
     )
   )
+  .listen(process.env.PORT || 3001)
   .on('err', err => {
     koaDebug('app error', err);
   });
