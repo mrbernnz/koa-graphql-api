@@ -5,3 +5,5 @@ const schema = buildSchema(`
     hello: String
   }
 `);
+
+export default schema;
