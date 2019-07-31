@@ -1,4 +1,5 @@
 import Koa from 'koa';
+import cors from '@koa/cors';
 import mount from 'koa-mount';
 import graphqlHTTP from 'koa-graphql';
 
@@ -12,6 +13,7 @@ const app = new Koa();
 initDB();
 
 app
+  .use(cors())
   .use(
     mount(
       '/graphql',
