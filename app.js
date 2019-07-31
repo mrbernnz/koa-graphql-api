@@ -13,6 +13,15 @@ const app = new Koa();
 initDB();
 
 app
+  .use(async (ctx, next) => {
+    try {
+      await next();
+    } catch (err) {
+      ctx.status = err.status || 500;
+      ctx.body = err.message;
+      ctx.app.emit('error', err, ctx);
+    }
+  })
   .use(cors())
   .use(
     mount(
@@ -27,33 +36,5 @@ app
   .on('err', err => {
     koaDebug('app error', err);
   });
-
-/*
- * app.context.date = Date();
- * app.context.userData = {
- *   first: 'Noel',
- *   last: 'Sagaille'
- * };
- *
- * app
- *   .use(async (ctx, next) => {
- *     await next();
- *     const responseTime = ctx.response.get(`X-Response-Time`);
- *     koaDebug(`${ctx.request.method} ${ctx.request.url} - ${responseTime}`);
- *   })
- *
- *   .use(async (ctx, next) => {
- *     const start = Date.now();
- *     await next();
- *     const milisecond = Date.now() - start;
- *     ctx.set(`X-Response-Time`, `${milisecond}ms`);
- *   })
- *
- *   .use(ctx => {
- *     let from = ctx.request.origin;
- *     koaDebug(from);
- *     ctx.response.body = ctx.userData;
- *   });
- */
 
 export default app;
